@@ -1,0 +1,34 @@
+Part 1
+
+1. ls -d .*/
+
+2.a. mkdir '!*'; mkdir "!*"; mkdir \!\*
+  b. mkdir \$HOME
+  c. mkdir \.\.\.; mkdir "..."
+  d. mkdir \"What\'s\ For\ Dinner\?\"
+  e. mkdir \-
+
+3. ls /usr/bin/[abc]*
+
+4. echo {a,b,c,d}{a,b,c,d}
+
+Part 2
+
+1. PS1=$PWD; PS1=[$PWD]; PS1='[$PWD] '; PS1='C> '
+
+2. echo 'hello' > .todo
+	in .profile put cat ~/.todo or cat ~/.todo
+
+3. mkdir bin; PATH=$PATH:~/bin
+
+4. in .bashrc put alias path='echo $PATH'
+
+Part 3
+
+1. sort -nr -k 5 al.batters.88| head -n 10 | tr ' ' ':' | tr -s ':' | cut -d: -f1,5
+
+2. tr ' ' ':' < al.batters.88 | tr -s ':' | sort -t: -k13,13n -k6,6nr | cut -d: -f1,6,13 | head -n1
+
+3. tr ' ' ':' < al.batters.88 | tr -s ':' | sort -t: -k5,5nr | head -n10 | cut -d: -f1,5,13 > top_batting_average
+
+comm -12 top_batting_average <(tr ' ' ':' < al.batters.88 | tr -s ':' | sort -t: -k13,13nr -k5,5nr | head -n10 | cut -d: -f1,5,13)
